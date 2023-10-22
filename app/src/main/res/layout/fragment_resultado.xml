@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.example.myfragmentapp.CalculatorViewModel" />
     </data>
 
     <FrameLayout
@@ -18,7 +20,7 @@
             android:textSize="40sp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:text="Resultado" />
+            android:text="@{viewModel.result}" />
 
     </FrameLayout>
 </layout>

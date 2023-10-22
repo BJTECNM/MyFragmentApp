@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.example.myfragmentapp.databinding.FragmentResultadoBinding
 
 class ResultadoFragment : Fragment() {
@@ -15,8 +16,14 @@ class ResultadoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_resultado, container, false)
-        return view
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_resultado, container, false
+        )
+
+        binding.viewModel = CalculatorViewModel()
+        binding.lifecycleOwner = this
+
+        return binding.root
     }
 
 }
