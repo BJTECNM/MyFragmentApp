@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.myfragmentapp.databinding.FragmentDatosBinding
 
 class DatosFragment : Fragment() {
 
+    private lateinit var binding : FragmentDatosBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

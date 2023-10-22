@@ -1,71 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".DatosFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <EditText
-        android:id="@+id/editNum1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Número 1"
-        android:minHeight="48dp" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="15dp" />
-
-    <EditText
-        android:id="@+id/editNum2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Número 2"
-        android:minHeight="48dp" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp"/>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.myfragmentapp.CalculatorViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".DatosFragment">
 
-        <Button
-            android:id="@+id/BtnSumar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sumar"
-            android:layout_marginEnd="2dp"
-            android:layout_marginStart="2dp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
 
-        <Button
-            android:id="@+id/BtnRestar"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/editNum1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Restar"
-            android:layout_marginEnd="2dp"
-            android:layout_marginStart="2dp" />
+            android:hint="Número 1"
+            android:minHeight="48dp"
+            android:text="@={viewModel.operand1}"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp" />
 
-        <Button
-            android:id="@+id/BtnMultiplicar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Multiplicar"
-            android:layout_marginEnd="2dp"
-            android:layout_marginStart="2dp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
 
-        <Button
-            android:id="@+id/BtnDividir"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/editNum2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dividir"
-            android:layout_marginEnd="2dp"
-            android:layout_marginStart="2dp" />
+            android:hint="Número 2"
+            android:minHeight="48dp"
+            android:text="@={viewModel.operand2}"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/BtnSumar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sumar"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="2dp"
+                android:onClick="@{() -> viewModel.performOperation('+')}" />
+
+            <Button
+                android:id="@+id/BtnRestar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Restar"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="2dp"
+                android:onClick="@{() -> viewModel.performOperation('-')}" />
+
+            <Button
+                android:id="@+id/BtnMultiplicar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Multiplicar"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="2dp"
+                android:onClick="@{() -> viewModel.performOperation('*')}" />
+
+            <Button
+                android:id="@+id/BtnDividir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dividir"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="2dp"
+                android:onClick="@{() -> viewModel.performOperation('/')}" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>
