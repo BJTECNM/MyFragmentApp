@@ -11,6 +11,7 @@ import com.example.myfragmentapp.databinding.FragmentResultadoBinding
 class ResultadoFragment : Fragment() {
 
     private lateinit var binding : FragmentResultadoBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
